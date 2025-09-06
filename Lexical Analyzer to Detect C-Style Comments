@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <string.h>
+
+int isSingleLineComment(const char *line) {
+    return (strncmp(line, "//", 2) == 0);
+}
+
+int isMultiLineComment(const char *line) {
+    return (strstr(line, "/*") && strstr(line, "*/"));
+}
+
+int main() {
+    char line[256];
+
+    printf("Enter a line of code: ");
+    fgets(line, sizeof(line), stdin);
+
+    if (isSingleLineComment(line)) {
+        printf("Single-line comment detected.\n");
+    } else if (isMultiLineComment(line)) {
+        printf("Multi-line comment detected.\n");
+    } else {
+        printf("Not a comment.\n");
+    }
+
+    return 0;
+}
