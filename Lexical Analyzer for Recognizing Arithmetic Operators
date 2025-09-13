@@ -1,0 +1,15 @@
+def is_operator(char):
+    operators = ['+', '-', '*', '/']
+    return char in operators
+input_str = input("Enter an expression or character: ")
+
+found = False
+print("Recognized operators:")
+
+for char in input_str:
+    if is_operator(char):
+        print(f"Operator: {char}")
+        found = True
+
+if not found:
+    print("No valid arithmetic operators found.")
